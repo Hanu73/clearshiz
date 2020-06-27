@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clearshiz</title>
+    <link href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-12">
+        <p>Enter the URL :</p>
+        <textarea cols="30" rows="7" id="urlText"> </textarea>
+        <button onclick="clearIt()">Clear</button>
+        <textarea cols="30" rows="7" style="white-space: pre" id="finalVal"></textarea>
+    </div>
+</div>
+<script src="jquery-3.5.1.min.js"></script>
+<script src="bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+<script>
+    function clearIt(){
+        let text = document.getElementById('urlText').value;
+        let res = text.replace(/[*_`]/g,'');
+        document.getElementById('finalVal').innerHTML = res;
+        let copyText = document.getElementById('finalVal');
+        copyToClipboard(copyText)
+    }
+    function copyToClipboard(text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        $(dummy).attr('id', 'dummytext')
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea".
+        // dummy.value = text;
+        let cpy = document.getElementById('dummytext').val;
+        cpy = text
+        console.log(cpy)
+        cpy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    }
+</script>
+</body>
+</html>
