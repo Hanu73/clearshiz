@@ -29,11 +29,9 @@
         var dummy = document.createElement("textarea");
         document.body.appendChild(dummy);
         $(dummy).attr('id', 'dummytext')
-        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea".
-        // dummy.value = text;
+        //Be careful if you use textarea. setAttribute('value', value), which works with "input" does not work with "textarea".
         let cpy = document.getElementById('dummytext').val;
         cpy = text
-        console.log(cpy)
         cpy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
