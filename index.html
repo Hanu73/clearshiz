@@ -28,7 +28,7 @@
     function copyToClipboard(text) {
         var dummy = document.createElement("textarea");
         document.body.appendChild(dummy);
-        $(dummy).attr('id', 'dummytext')
+        $(dummy).attr('id', 'dummytext');
         //Be careful if you use textarea. setAttribute('value', value), which works with "input" does not work with "textarea".
         let cpy = document.getElementById('dummytext').val;
         cpy = text
